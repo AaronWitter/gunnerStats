@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Arsenal Performances 2013-14 </title>
+		
+	</head>
+	<body>
+
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/papaparse.js"></script>
+    
+		
+	<script>
+
+
+
+
+	Papa.parse("http://localhost:8000/Desktop/footiestats2.csv", {
+		download: true,
+		complete: function(results) {
+
+			console.log("Remote file parsed!", results);
+		}
+		var footiedata = results
+	var arrayLength = footiedata.length;
+	for (var i = 0; i < arrayLength; i++) {
+    	alert(footiedata[i]);
+    	console.log(footiedata[i]);
+
+}      
+	});
+
+	var footiedata = results
+	var arrayLength = footiedata.length;
+	for (var i = 0; i < arrayLength; i++) {
+    	alert(footiedata[i]);
+    	console.log(footiedata[i]);
+
+}      
+		</script>
+    
+	</body>
+</html>
+
+
+
