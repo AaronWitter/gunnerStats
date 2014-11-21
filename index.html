@@ -15,30 +15,15 @@
 
 
 
+		Papa.parse("footiestats2.csv", {
+			download: true,
+			complete: function(results) {
+				console.log("Remote file parsed!", results);
+			}
+		});
 
-	Papa.parse("http://localhost:8000/Desktop/footiestats2.csv", {
-		download: true,
-		complete: function(results) {
 
-			console.log("Remote file parsed!", results);
-		}
-		var footiedata = results
-	var arrayLength = footiedata.length;
-	for (var i = 0; i < arrayLength; i++) {
-    	alert(footiedata[i]);
-    	console.log(footiedata[i]);
-
-}      
-	});
-
-	var footiedata = results
-	var arrayLength = footiedata.length;
-	for (var i = 0; i < arrayLength; i++) {
-    	alert(footiedata[i]);
-    	console.log(footiedata[i]);
-
-}      
-		</script>
+	</script>
     
 	</body>
 </html>
