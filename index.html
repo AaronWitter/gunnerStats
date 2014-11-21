@@ -14,13 +14,19 @@
 	<script>
 
 
-
 		Papa.parse("footiestats2.csv", {
 			download: true,
 			complete: function(results) {
-				console.log("Remote file parsed!", results);
-			}
-		});
+				var season = results.data;
+					for (var i = 0; i < season.length; i++){
+						console.log(season[i][0]);
+						}
+					}
+				});
+			
+
+
+
 
 
 	</script>
