@@ -32,16 +32,16 @@
 			complete: function(results) {
 				var season = [];
 
+				season.push(['Game', 'Goals For', 'Goals Against']),
 				//create a new array for our results
 			    results.data.forEach(function(row){
-			    	
-			    	if (row[0] == "Arsenal"){//loop through the csv data
-	              	season.push([games, (row[1]),parseInt(row[2]), parseInt(row[3])]);//build new rows with the data we want
+			    	if (row[0] = "Arsenal"){//loop through the csv data
+	              	season.push([games,parseInt(row[2]), parseInt(row[3])]);//build new rows with the data we want
 	              	games += 1;	              
 
 	              	}
 	              	else if (row[1] == "Arsenal"){//loop through the csv data
-	              	season.push([ games, (row[0]),parseInt(row[2]), parseInt(row[3]), (row[4])]);//build new rows with the data we wan
+	              	season.push([ games,parseInt(row[2]), parseInt(row[3])]);//build new rows with the data we wan
 	              	games+=1;	              
 
 	              	};
