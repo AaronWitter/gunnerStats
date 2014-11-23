@@ -12,37 +12,48 @@
     
 		
 	<script>
-		var games = 38;
+		var games = 1;
 		 google.load('visualization', '1.0', {'packages':['corechart']});
-      google.setOnLoadCallback(drawChart);
-      function drawChart(){
-        var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Goals');
-        data.addColumn('number', games);
-        var options = {'title':'Home goals',
-                       'width':1000,
-                       'height':300};
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-		Papa.parse("footiestats2.csv", {
+            google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Game', 'Goals For', 'Goals Against']
+          
+        ]);
+
+        var options = {
+          title: 'Arsenal Results 2013-14'
+        };
+        
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        Papa.parse("footiestats2.csv", {
 			download: true,
 			complete: function(results) {
 				var season = [];
 
 				//create a new array for our results
 			    results.data.forEach(function(row){
+			    	
 			    	if (row[0] == "Arsenal"){//loop through the csv data
-	              	season.push([parseInt(row[0]),parseInt(row[1]),parseInt(row[2]), parseInt(row[3])]);//build new rows with the data we want
-	              }
-	              else if (row[1] == "Arsenal"){//loop through the csv data
-	              	season.push([parseInt(row[0]),parseInt(row[1]),parseInt(row[2]), parseInt(row[3])]);//build new rows with the data we want
-	              }
+	              	season.push([games, (row[1]),parseInt(row[2]), parseInt(row[3])]);//build new rows with the data we want
+	              	games += 1;	              
+
+	              	}
+	              	else if (row[1] == "Arsenal"){//loop through the csv data
+	              	season.push([ games, (row[0]),parseInt(row[2]), parseInt(row[3]), (row[4])]);//build new rows with the data we wan
+	              	games+=1;	              
+
+	              	};
+
             });
 	      	console.log(season);
-            data.addRows(season);//pass the new results to our data table
-            chart.draw(data, options);//draw our chart
-          }
+            data.addRows(season);//pass the new results t
+
+        	chart.draw(data, options);
+      		}
         });
-      };
+      }; 
 
 
 	</script>
